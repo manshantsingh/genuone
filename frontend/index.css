@@ -1,0 +1,73 @@
+.app {
+  margin-top: 1em;
+}
+.app > .row:nth-child(2) {
+  margin-top: 20px;
+}
+
+.app .card-body .winning-emotions .emotions {
+  margin-top: 65px;
+}
+
+.app .card-body .winning-emotions .emotions .emojis {
+  text-align:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app .card-body .winning-emotions .emotions .text {
+  text-align: center;
+}
+
+.app .card-body .winning-emotions .emotions .emojis div:nth-child(1) .emotion {
+  font-size: 100px;
+}
+.app .card-body .winning-emotions .emotions .emojis div:nth-child(2) .emotion {
+  font-size: 70px;
+}
+.app .card-body .winning-emotions .emotions .emojis div:nth-child(3) .emotion {
+  font-size: 45px;
+}
+
+.app .student-questions .questions-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.app .student-questions .questions-list {
+  height: 220px;
+  overflow-y: scroll;
+  margin: 0;
+}
+
+.app .student-questions .questions-list li {
+  margin: 15px 0 25px 0;
+}
+
+.app .student-questions .questions-list li span {
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.app .student-questions {
+  position: relative;
+}
+
+.app .student-questions #hand-raised-question-alert {
+  position: absolute;
+  background-color: rgba(255,0,0,0.85);
+  height: 100%;
+  width: 96%;
+  z-index: 1;
+  display: flex;
+  border-radius: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.app .student-questions #hand-raised-question-alert p {
+  color: white;
+  font-size: 30px;
+}

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="bar-chart.css">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <!-- Basic Card with Image, Title and Description -->
+    <div class="app container-fluid">
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+
+                <div class="col-md-6">
+                  <h4 class="card-title">Real-Time Emotions</h4>
+                  <hr />
+                  <div class="bar-chart">
+                    <div class="chart clearfix">
+                      <div class="item">
+                        <div class="bar">
+                          <span class="percent">92%</span>
+
+                          <div class="item-progress" data-percent="92">
+                            <span class="title">Surprise</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <div class="bar">
+                          <span class="percent">71%</span>
+
+                          <div class="item-progress" data-percent="71">
+                            <span class="title">Disgust</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <div class="bar">
+                          <span class="percent">82%</span>
+
+                          <div class="item-progress" data-percent="82">
+                            <span class="title">Anger</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <div class="bar">
+                          <span class="percent">67%</span>
+
+                          <div class="item-progress" data-percent="67">
+                            <span class="title">Happiness</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <div class="bar">
+                          <span class="percent">67%</span>
+
+                          <div class="item-progress" data-percent="49">
+                            <span class="title">Contempt</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <div class="bar">
+                          <span class="percent">67%</span>
+
+                          <div class="item-progress" data-percent="93">
+                            <span class="title">Sadness</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <div class="bar">
+                          <span class="percent">67%</span>
+
+                          <div class="item-progress" data-percent="39">
+                            <span class="title">Neutral</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <div class="bar">
+                          <span class="percent">67%</span>
+
+                          <div class="item-progress" data-percent="27">
+                            <span class="title">Fear</span>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 winning-emotions">
+                  <h4 class="card-title">Winning Emotions</h4>
+                  <hr />
+                  <div class="emotions">
+                    <div class="emojis row">
+                      <div class="col-md-4">
+                        <div>
+                          <p class="emotion">😃</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div>
+                          <p class="emotion">😰</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div>
+                          <p class="emotion">🤪</p>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row text">
+                      <div class="col-md-4">
+                        <p class="text">Happy</p>
+                      </div>
+                      <div class="col-md-4">
+                        <p class="text">Sad</p>
+                      </div>
+                      <div class="col-md-4">
+                        <p class="text">Confused</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+
+              <h4 class="card-title">Current Attendance</h4>
+              <hr />
+              <h5>Beginning: 40</h5>
+              <h3>Current: 28</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 student-questions">
+          <div id="hand-raised-question-alert">
+            <p>Someone raised their hand to ask a question!</p>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Student Questions</h4>
+              <hr />
+              <ul class="questions-list">
+                <li><span>Why does SAP suck?</span></li>
+                <li><span>Why does Google not have enough swag?</span></li>
+                <li><span>Are Mesh networks overrated?</span></li>
+                <li><span>Why is Apple not here? NWHacks sucks without them!</span></li>
+                <li><span>To CA Technologies, why did you hire a smartwatch?!?!</span></li>
+                <li><span>Why is SFU not in eduroam list according to manshant?</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <script src="index.js"></script>
+  </body>
+</html>
