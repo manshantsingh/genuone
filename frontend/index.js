@@ -41,4 +41,19 @@ $(document).ready(function(){
       itemProgress.css('width', itemProgressWidth);
     });
   };
+
+  console.log("got here")
+  setupSocket(function(ev){
+    console.log(ev);
+  },function(event) {
+    console.log(event);
+  });
 });
+
+function setupSocket(onOpenFn, onMessageFn) {
+  var socketConn = new WebSocket("ws://10.19.132.61:5000");
+  socketConn.onopen = onOpenFn;
+  socketConn.onmessage = onMessageFn;
+  socketConn.onclose = function(evt) {};
+  socketConn.onerror = function(evt) {};
+}
