@@ -5,6 +5,8 @@ from subprocess import PIPE
 from time import sleep
 import numpy as np
 import pandas as pd
+from ast import literal_eval
+import json
 
 async def hello(websocket, path):
 	run(['adb', 'shell', 'am', 'start', '-a', 'android.media.action.STILL_IMAGE_CAMERA'])
@@ -29,14 +31,16 @@ async def hello(websocket, path):
 		if out == "nothing":
 			continue
 		arr=[x.split(' ') for x in out.split('\\n')]
-		d=pd.DataFrame(arr, columns=columns, dtype=np.float).mean()
+		d=pd.DataFrame(arr, columns=columns, dtype=np.float).mean() * 100
 		data.append(d)
 		last_n.append(d)
 		if len(last_n) > N:
 			last_n.pop(0)
-		await websocket.send(pd.DataFrame(last_n).mean().to_json())
+		mean = pd.DataFrame(last_n).mean()
+		dic = {'last': literal_eval(mean.to_json()), 'winning': list(mean.sort_values(0, ascending=False).index[0:3])}
+		await websocket.send(json.dumps(dic))
 
-start_server = websockets.serve(hello, 'localhost', 5000)
+start_server = websockets.serve(hello, '0.0.0.0', 5000)
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
