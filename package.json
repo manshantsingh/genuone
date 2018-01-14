@@ -1,0 +1,16 @@
+{
+  "name": "emotion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concat-stream": "^1.6.0",
+    "request": "^2.83.0",
+    "socket.io": "^2.0.4"
+  }
+}
