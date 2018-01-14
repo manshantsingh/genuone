@@ -1,12 +1,32 @@
-<script>
-var socketConn = new WebSocket("ws://localhost:5000");
+<style type="text/css">
+#question, #name {
+  height: 30px;
+    margin: 0;
+}
+</style>
+<div>
+  <input id="name" type="text" placeholder="Enter demo student name" />
+  <br />
+  <input id="question" type="text" placeholder="Do you have a question?" />
+  <button id="submit">Submit</button>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script type="text/javascript">
+var socketConn = new WebSocket("ws://localhost:5001");
 socketConn.onopen = function(evt) {
-  socketConn.send(JSON.stringify({name:"Joe", message: "Hello"}));
 };
 socketConn.onclose = function(evt) {};
 socketConn.onerror = function(evt) {};
 socketConn.onmessage = function(ev) {
   console.log(ev);
 };
+
+$(document).ready(function() {
+  $("#submit").click(function() {
+    var text = $("#question").val();
+    var name = $("#name").val();
+    socketConn.send(JSON.stringify({name:name, message: text, type: "chat_msg"}));
+  });
+});
 
 </script>

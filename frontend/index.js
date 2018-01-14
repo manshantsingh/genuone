@@ -97,13 +97,16 @@ $(document).ready(function(){
 
   setupSocket(function(ev){
     console.log(ev);
-    // var jsonData = JSON.parse(ev.data);
-    //
-    // if (jsonData['type'] == 'emotions_data') {
-    //   manageEmotionsData(jsonData);
-    // } else if (jsonData['type'] == 'chat_msg') {
-    //   // TODO:
-    // }
+    var jsonData = JSON.parse(ev.data);
+    console.log(jsonData);
+
+    if (jsonData['type'] == 'emotions_data') {
+      manageEmotionsData(jsonData);
+    } else if (jsonData['type'] == 'chat_msg') {
+      console.log(jsonData);
+                // 
+      $("#questions").append("<li><span class='qauthor'>"+jsonData["name"]+"</span><span class='qtext'>"+jsonData["message"]+"</span></li>");
+    }
   });
 });
 

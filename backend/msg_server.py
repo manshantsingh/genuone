@@ -1,9 +1,12 @@
 import asyncio
 import websockets
 
+conns=[]
 async def hello(websocket, path):
+  conns.append(websocket)
   async for message in websocket:
-    await websocket.send(message)
+    for c in conns:
+      await c.send(message)
 
 start_server = websockets.serve(hello, '0.0.0.0', 5001)
 

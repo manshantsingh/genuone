@@ -45,10 +45,19 @@
   margin: 15px 0 25px 0;
 }
 
-.app .student-questions .questions-list li span {
+.app .student-questions .questions-list li span.qtext {
   background-color: #e0e0e0;
   padding: 10px;
-  border-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.app .student-questions .questions-list li span.qauthor {
+  background-color: #63b6e6;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
 }
 
 .app .student-questions {
