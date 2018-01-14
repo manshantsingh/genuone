@@ -1,3 +1,18 @@
+var emotionToEmojiMapper = {
+  'anger': '😡',
+  'contempt': '😒',
+  'disgust': '😖',
+  'fear': '😰',
+  'happiness': '😃',
+  'neutral': '😐',
+  'sadness': '😔',
+  'surprise': '😮'
+};
+
+function jsUcfirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function getHoursMinuteFormat(time) {
   // Hours, minutes and seconds
   var hrs = ~~(time / 3600);
@@ -45,8 +60,6 @@ $(document).ready(function(){
   setupSocket(function(ev){
     var jsonData = JSON.parse(ev.data);
     var meanEmotions = jsonData["last"];
-    var winning = jsonData["winning"];
-
     var barItems = "";
     for (var eKey in meanEmotions) {
       var emotionVal = meanEmotions[eKey];
@@ -62,6 +75,15 @@ $(document).ready(function(){
 
     $(".bar-chart .chart").html(barItems);
     barChart();
+
+    var winning = jsonData["winning"];
+    $(".emotions .emojis .emotion.one").html(emotionToEmojiMapper[winning[0]]);
+    $(".emotions .emojis .emotion.two").html(emotionToEmojiMapper[winning[1]]);
+    $(".emotions .emojis .emotion.three").html(emotionToEmojiMapper[winning[2]]);
+
+    $(".emotions .text .text.one").html(jsUcfirst(winning[0]));
+    $(".emotions .text .text.two").html(jsUcfirst(winning[1]));
+    $(".emotions .text .text.three").html(jsUcfirst(winning[2]));
   });
 });
 
