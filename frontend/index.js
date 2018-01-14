@@ -1,3 +1,6 @@
+var IP1 = "ws://localhost:5000";
+var IP2 = "ws://localhost:5001";
+
 var emotionToEmojiMapper = {
   'anger': '😡',
   'contempt': '😒',
@@ -14,10 +17,10 @@ function jsUcfirst(string) {
 }
 
 function setupSocket(onMessageFn) {
-  var socketConn = new WebSocket("ws://localhost:5000");
+  var socketConn = new WebSocket(IP1);
   socketConn.onmessage = onMessageFn;
 
-  var socketConn2 = new WebSocket("ws://localhost:5001")
+  var socketConn2 = new WebSocket(IP2)
   socketConn2.onmessage = onMessageFn;
 }
 

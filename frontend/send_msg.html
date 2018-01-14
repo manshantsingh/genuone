@@ -26,6 +26,7 @@ $(document).ready(function() {
     var text = $("#question").val();
     var name = $("#name").val();
     socketConn.send(JSON.stringify({name:name, message: text, type: "chat_msg"}));
+    $("#question").val('');
   });
 });
 
