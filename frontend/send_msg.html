@@ -1,27 +1,48 @@
 <style type="text/css">
-#question, #name {
+#ip {
+  width: 250px;
   height: 30px;
-    margin: 0;
+  margin: 0;
+}
+#question, #name {
+  height: 40px;
+  width: 300px;
+  margin: 0;
+}
+#submit {
+  border: 0;
+  height: 40px;
+  width: 120px;
+  font-size: 19px;
+  background: #7eb8ff;
+  color: white;
+  border-radius: 9px;
 }
 </style>
 <div>
+  <input id="ip" type="text" placeholder="Server 2 IP address <ip>:<port>" value="localhost:5001" />
+  <hr />
+  <br />
   <input id="name" type="text" placeholder="Enter demo student name" />
   <br />
+  <br />
   <input id="question" type="text" placeholder="Do you have a question?" />
+  <br />
+  <br />
   <button id="submit">Submit</button>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script type="text/javascript">
-var socketConn = new WebSocket("ws://localhost:5001");
-socketConn.onopen = function(evt) {
-};
-socketConn.onclose = function(evt) {};
-socketConn.onerror = function(evt) {};
-socketConn.onmessage = function(ev) {
-  console.log(ev);
-};
-
 $(document).ready(function() {
+  var socketConn = new WebSocket("ws://"+$("#ip").val());
+  socketConn.onopen = function(evt) {
+  };
+  socketConn.onclose = function(evt) {};
+  socketConn.onerror = function(evt) {};
+  socketConn.onmessage = function(ev) {
+    console.log(ev);
+  };
+
   $("#submit").click(function() {
     var text = $("#question").val();
     var name = $("#name").val();
