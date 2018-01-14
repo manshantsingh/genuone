@@ -56,6 +56,10 @@
 }
 
 .app .student-questions #hand-raised-question-alert {
+  display: none;
+}
+
+.app .student-questions #hand-raised-question-alert .wrapper {
   position: absolute;
   background-color: rgba(255,0,0,0.85);
   height: 100%;
