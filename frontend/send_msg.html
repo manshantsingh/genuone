@@ -1,0 +1,12 @@
+<script>
+var socketConn = new WebSocket("ws://localhost:5000");
+socketConn.onopen = function(evt) {
+  socketConn.send(JSON.stringify({name:"Joe", message: "Hello"}));
+};
+socketConn.onclose = function(evt) {};
+socketConn.onerror = function(evt) {};
+socketConn.onmessage = function(ev) {
+  console.log(ev);
+};
+
+</script>
