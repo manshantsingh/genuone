@@ -42,18 +42,34 @@ $(document).ready(function(){
     });
   };
 
-  console.log("got here")
   setupSocket(function(ev){
-    console.log(ev);
-  },function(event) {
-    console.log(event);
+    var jsonData = JSON.parse(ev.data);
+    var meanEmotions = jsonData["last"];
+    var winning = jsonData["winning"];
+
+    var barItems = "";
+    for (var eKey in meanEmotions) {
+      var emotionVal = meanEmotions[eKey];
+      barItems += `<div class="item">
+                        <div class="bar">
+                          <span class="percent">`+emotionVal+`%</span>
+                          <div class="item-progress" data-percent="`+emotionVal+`">
+                            <span class="title">`+eKey.toUpperCase()+`</span>
+                          </div>
+                        </div>
+                      </div>`;
+    }
+
+    $(".bar-chart .chart").html(barItems);
+    barChart();
   });
 });
 
-function setupSocket(onOpenFn, onMessageFn) {
+function setupSocket(onMessageFn) {
   var socketConn = new WebSocket("ws://10.19.132.61:5000");
-  socketConn.onopen = onOpenFn;
-  socketConn.onmessage = onMessageFn;
+  socketConn.onopen = function(evt) {};
   socketConn.onclose = function(evt) {};
   socketConn.onerror = function(evt) {};
+
+  socketConn.onmessage = onMessageFn;
 }
