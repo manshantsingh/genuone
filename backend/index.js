@@ -8,7 +8,7 @@ if (process.argv.length<3) {
 	console.log("node index.js [image-file-name]")
 } else {
 	const imgName = process.argv[2]
-	console.log('\n\nfileName: '+ imgName)
+	// console.log('\n\nfileName: '+ imgName)
 	const a=fs.createReadStream(imgName).pipe(concat(function(data){
 		request.post('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize',{
 			headers: {
@@ -17,12 +17,15 @@ if (process.argv.length<3) {
 			},
 			body: data
 		}, function(error, response, body){
-			// console.log(a);
 			if(error) console.log(error);
 		    else{
-		    	for(let i=0;i<body.length;i++){
-		    		let x=body[i].scores;
+		    	let json=JSON.parse(body);
+		    	for(let i=0;i<json.length;i++){
+		    		let x=json[i].scores;
 		    		console.log(x.anger + ' ' + x.contempt + ' ' + x.disgust + ' ' + x.fear + ' ' + x.happiness + ' ' + x.neutral + ' ' + x.sadness + ' ' + x.surprise)
+		    	}
+		    	if(json.length<1){
+		    		console.log("nothing");
 		    	}
 		    }
 		});
